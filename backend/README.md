@@ -1,40 +1,17 @@
-## Download data
+## Download and extract data
 
-Run either:
+1. `mkdir data`
+2. Download [celeba dataset](https://drive.google.com/file/d/0B7EVK8r0v71pZjFTYXZWM3FlRnM/view?resourcekey=0-dYn9z10tMJOBAkviAcfdyQ)
+3. Extract into `data`
 
-- `python get_memes.py 1000` to download 1,000 memes
-- `sh get_pokemon.sh` to download Pokemon sprite images
+## Index
 
-## Index data
-
-```sh
-python app.py index
+```shell
+python app.py -t index -n 1000 # "-n" specifies max docs to index
 ```
 
-## Query data
+## Query
 
-```sh
-python app.py query_restful
+```shell
+python app.py -t query_restful
 ```
-
-And then...
-
-### via `curl`
-
-Open a new terminal and use the command:
-
-```sh
-curl --request POST -d '{"parameters": {"top_k": 3}, "mode": "search",  "data": [{"uri":"data/1.png", "mime_type": "image/png"}]}' -H 'Content-Type: application/json' 'http://localhost:12345/search'
-```
-
-Where:
-
-- `uri` is the URI to the image you want to query with
-- `mime_type` is either `image/png` or `image/jpg` (depending on your query image)
-
-### via frontend
-
-Open a new terminal, and go to the `frontend` directory, then type:
-
-1. Create a virtual environment, install dependencies
-2. Run `streamlit run app.py`
