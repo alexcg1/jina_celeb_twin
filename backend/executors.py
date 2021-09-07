@@ -9,3 +9,4 @@ class UriToBlob(Executor):
             doc.tags["uri"] = doc.uri
             doc.tags["uri_absolute"] = os.path.abspath(doc.uri)
             doc.convert_image_uri_to_blob()
+

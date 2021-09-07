@@ -18,13 +18,6 @@ flow = (
         uses_with={"target_size": 96},
     )
     .add(uses="jinahub+docker://CLIPImageEncoder", name="celeb_clip_encoder")
-    # .add(
-    # uses="jinahub+docker://BigTransferEncoder",
-    # uses_with={"model_name": "Imagenet1k/R50x1", "model_path": "model"},
-    # uses_metas={"workspace": WORKSPACE_DIR},
-    # name="celeb_encoder",
-    # volumes="./data:/encoder/data",
-    # )
     .add(
         uses="jinahub+docker://SimpleIndexer",
         uses_with={"index_file_name": "index"},
