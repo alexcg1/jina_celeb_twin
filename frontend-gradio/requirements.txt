@@ -1,0 +1,3 @@
+gradio==2.3.0
+pretty-errors==1.2.24
+python-magic==0.4.24
