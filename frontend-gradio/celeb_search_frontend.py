@@ -60,6 +60,7 @@ iface = gr.Interface(
     fn=search_by_file,
     inputs=gr.inputs.Image(source="webcam", tool=None),
     outputs="image",
+    server_name="0.0.0.0"
     server_port=7860,
     title="Find your celebrity twin",
     description="Take a selfie to find a celebrity who looks like you!",
@@ -70,4 +71,4 @@ iface = gr.Interface(
 
 iface.test_launch()
 if __name__ == "__main__":
-    iface.launch(share=True)
+    iface.launch()
