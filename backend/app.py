@@ -4,9 +4,10 @@ from jina import Flow, DocumentArray
 from jina.types.document.generators import from_files
 from executors import UriToBlob
 
+DATASET = "fashion"
 NUM_DOCS = 1000
 FORMATS = ["jpg", "png", "jpeg"]
-DATA_DIR = "data"
+DATA_DIR = f"data/{DATASET}"
 WORKSPACE_DIR = "workspace"
 
 flow = (
@@ -48,7 +49,7 @@ def index(num_docs=NUM_DOCS):
 
 def query_restful():
     flow.protocol = "http"
-    flow.port_expose = 12345
+    flow.port_expose = 54321
 
     with flow:
         flow.block()
