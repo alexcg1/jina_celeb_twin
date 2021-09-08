@@ -1,7 +1,13 @@
 import requests
 import uuid
 from PIL import Image
+import face_recognition
 
+def check_human(image_uri):
+    image = face_recognition.load_image_file(image_uri)
+    face_locations = face_recognition.face_locations(image)
+    print(face_locations)
+    return face_locations
 
 def save_image(image, output_filename=None):
     if not output_filename:
