@@ -14,6 +14,7 @@ matches = []
 score_filter = 1
 headers = {"Content-Type": "application/json"}
 message = gr.outputs.HTML("")
+image_source = "webcam"
 
 def search_by_file(image, endpoint="http://0.0.0.0:12345/search", top_k=1):
     """search_by_file.
@@ -58,7 +59,7 @@ def search_by_file(image, endpoint="http://0.0.0.0:12345/search", top_k=1):
 
 iface = gr.Interface(
     fn=search_by_file,
-    inputs=gr.inputs.Image(source="upload", tool=None),
+    inputs=gr.inputs.Image(source=image_source, tool=None),
     outputs="image",
     server_name="0.0.0.0",
     server_port=7860,
