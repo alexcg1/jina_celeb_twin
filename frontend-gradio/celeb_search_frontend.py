@@ -58,7 +58,7 @@ def search_by_file(image, endpoint="http://0.0.0.0:12345/search", top_k=1):
 
 iface = gr.Interface(
     fn=search_by_file,
-    inputs=gr.inputs.Image(source="webcam", tool=None),
+    inputs=gr.inputs.Image(source="upload", tool=None),
     outputs="image",
     server_name="0.0.0.0",
     server_port=7860,
