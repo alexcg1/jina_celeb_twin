@@ -4,10 +4,9 @@ from jina import Flow, DocumentArray
 from jina.types.document.generators import from_files
 from executors import UriToBlob
 
-DATASET = "fashion"
 NUM_DOCS = 1000
 FORMATS = ["jpg", "png", "jpeg"]
-DATA_DIR = f"data/{DATASET}"
+DATA_DIR = "data"
 WORKSPACE_DIR = "workspace"
 
 flow = (
