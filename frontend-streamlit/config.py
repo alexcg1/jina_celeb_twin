@@ -3,7 +3,7 @@
 data_dir_root = "/home/ubuntu/alexcg/celeb_twin/backend/" # aws
 
 image_endpoint = "http://0.0.0.0:54321/search"
-image_endpoint = "http://examples.jina.ai:54321/search"
+# image_endpoint = "http://examples.jina.ai:54321/search"
 
 top_k = 10
 
