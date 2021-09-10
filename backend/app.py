@@ -12,11 +12,11 @@ WORKSPACE_DIR = "workspace"
 flow = (
     Flow()
     .add(uses=UriToBlob, name="celeb_to_blob")  # Embed image in doc, not just filename
-    # .add(
-        # uses="jinahub+docker://ImageNormalizer",
-        # name="celeb_crafter",
-        # uses_with={"target_size": 96},
-    # )
+    .add(
+        uses="jinahub+docker://ImageNormalizer",
+        name="celeb_crafter",
+        uses_with={"target_size": 96},
+    )
     .add(uses="jinahub+docker://CLIPImageEncoder", name="celeb_clip_encoder")
     .add(
         uses="jinahub+docker://SimpleIndexer",
