@@ -34,6 +34,15 @@ class FacenetEncoder(Executor):
             # img_probs = resnet(img_cropped.unsqueeze(0))
 
             # print(img_probs)
+            # print(doc.uri)
+            # print(doc.embedding)
+            # print(doc.embedding.shape)
+
+
+class DocPrinter(Executor):
+
+    @requests
+    def print_doc(self, docs, **kwargs):
+        for doc in docs:
             print(doc.uri)
             print(doc.embedding)
-            print(doc.embedding.shape)
