@@ -5,6 +5,7 @@ from jina.types.document.generators import from_files
 from helper import dinger as ding
 
 MAX_DOCS = 4000
+from_file = "query.jpg"
 
 
 flow = (
@@ -32,8 +33,8 @@ def index(num_docs):
         flow.index(inputs=docs)
 
 
-def query():
-    query_doc = Document(uri="data.old/idris.jpg")
+def query(filepath=from_file):
+    query_doc = Document(uri=filepath)
 
     with flow:
         response = flow.search(inputs=query_doc, return_results=True)
@@ -48,15 +49,16 @@ def query():
 @click.option(
     "--task",
     "-t",
-    type=click.Choice(["index", "query_restful"], case_sensitive=False),
+    type=click.Choice(["index", "query"], case_sensitive=False),
 )
 @click.option("--num_docs", "-n", default=MAX_DOCS)
-def main(task, num_docs):
+@click.option("--from_file", "-f", default=from_file)
+def main(task, num_docs, from_file):
     if task == "index":
         index(num_docs=num_docs)
 
     if task == "query":
-        query()
+        query(from_file)
 
 
 if __name__ == "__main__":
