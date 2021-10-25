@@ -45,11 +45,18 @@ def query(filepath=from_file):
         print(match.uri)
 
 
+def query_restful():
+    with flow:
+        flow.port_expose = 12345
+        flow.protocol = "http"
+        flow.block()
+
+
 @click.command()
 @click.option(
     "--task",
     "-t",
-    type=click.Choice(["index", "query"], case_sensitive=False),
+    type=click.Choice(["index", "query", "query_restful"], case_sensitive=False),
 )
 @click.option("--num_docs", "-n", default=MAX_DOCS)
 @click.option("--from_file", "-f", default=from_file)
@@ -57,8 +64,11 @@ def main(task, num_docs, from_file):
     if task == "index":
         index(num_docs=num_docs)
 
-    if task == "query":
+    elif task == "query":
         query(from_file)
+
+    elif task == "query_restful":
+        query_restful()
 
 
 if __name__ == "__main__":
